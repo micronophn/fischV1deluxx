@@ -1,1 +1,65 @@
-game.Players.LocalPlayer:Kick("You're Banned for 50940335544 Days for using hacks/cheats")
+local plr = game.Players.LocalPlayer
+local password = "6569035274"
+
+local screengui = Instance.new("ScreenGui")
+local frame = Instance.new("Frame")
+local textlabel = Instance.new("TextLabel")
+local textbox = Instance.new("TextBox")
+local textbutton = Instance.new("TextButton")
+local uitextsize = Instance.new("UITextSizeConstraint")
+local uicorner = Instance.new("UICorner")
+
+uitextsize.MaxTextSize = 100
+
+screengui.Parent = plr.PlayerGui
+screengui.IgnoreGuiInset = true
+screengui.Name = "fischV1"
+
+frame.Parent = screengui
+uicorner.Parent = frame
+frame.Position = UDim2.new(0.5, 0,0.5, 0)
+frame.BackgroundColor3 = Color3.new(0, 0, 0)
+
+textlabel.Parent = frame
+textlabel.Size = UDim2.new(0.603, 0,0.093, 0)
+textlabel.Position = UDim2.new(0.198, 0,0.174, 0)
+textlabel.BackgroundTransparency = 1
+textlabel.TextColor3 = Color3.new(1, 1, 1)
+textlabel.Font = Enum.Font.Nunito
+textlabel.Text = "Please enter your key"
+textlabel.TextScaled = true
+textlabel.TextSize = 78
+uitextsize.Parent = textlabel
+
+textbox.Parent = frame
+uicorner:Clone().Parent = textbox
+textbox.BackgroundColor3 = Color3.new(1, 1, 1)
+textbox.Position = UDim2.new(0.269, 0,0.435, 0)
+textbox.Size = UDim2.new(0.462, 0,0.13, 0)
+textbox.Font = Enum.Font.Nunito
+textbox.Text = ""
+textbox.PlaceholderText = "Put your key here"
+textbox.TextSize = 16
+
+textbutton.Parent = frame
+uicorner:Clone().Parent = textbutton
+textbutton.BackgroundColor3 = Color3.new(1, 1, 1)
+textbutton.Position = UDim2.new(0.349, 0,0.708, 0)
+textbutton.Size = UDim2.new(0.302, 0,0.155, 0)
+textbutton.Font = Enum.Font.Nunito
+textbutton.TextSize = 24
+textbutton.Text = "Submit"
+
+frame:TweenSizeAndPosition(UDim2.new(0.3, 0,0.3, 0), UDim2.new(0.35, 0,0.349, 0), "Out", "Quad")
+
+textbutton.MouseButton1Click:Connect(function()
+	if textbox.Text == password then
+		textbutton.Text = "Please Wait checking"
+		wait(1.5)
+		plr:Kick("You've been banned from Fisch by: Anti-Cheat for using exploits/hacks/cheats.															You'll be unbanned in 5100000000 day(s).										If you think you got banned falsely please appeal your ban in our discord server.")
+	else
+		textbutton.Text = "Incorrent"
+		wait(1.5)
+		textbutton.Text = "Submit"
+	end
+end)
